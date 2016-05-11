@@ -48,7 +48,7 @@ describe('DemoListController:: ', function () {
 
         scope.callbackObject.setButtonCall(mockIncreaseFunction);
 
-        scope.value = 'almaaa';
+        scope.letter = 'almaaa';
 
         scope.callbackObject.buttonCall();
 
@@ -59,7 +59,7 @@ describe('DemoListController:: ', function () {
 
     it('$scope.increase :: Check increase functionality  no stub :: expect KORTEEE', function () {
 
-        scope.value = 'korteee';
+        scope.letter = 'korteee';
         // call the function directly
         scope.touppercase();
         expect(scope.callresult).toEqual('KORTEEE');
