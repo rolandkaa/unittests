@@ -6,11 +6,10 @@ module.exports = function (app, express ) {
 		next(); 
 	});
 
-	router.get('/', function(req, res) {
+	router.get('https://angularapp001.herokuapp.com/', function(req, res) {
 		res.sendfile('./public/index.html');
 	});
-
-	router.route('/demolist/:demoID')
+	router.route('https://angularapp001.herokuapp.com/demolist/:demoID')
 
 		// get the bear with that id (accessed at GET http://localhost:8080/api/bears/:bear_id)
 		.get(function(req, res) {
@@ -23,7 +22,7 @@ module.exports = function (app, express ) {
 
 		});
 
-	app.use('/', router);
+	app.use('https://angularapp001.herokuapp.com/', router);
 
 
 };

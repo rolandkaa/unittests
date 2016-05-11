@@ -1,19 +1,11 @@
-// load the node module, require to bult a rest api + web server
-// *************************************************************
 
 var express 		= require('express'); 
 var app 	    	= express(); // create the app
 var bodyParser		= require('body-parser');
 var methodOverride 	= require('method-override');
 
-
-
-// set the port 
-
 var port = process.env.PORT || 3030 ; 
 
-// get all data/stuff of the body (POST) parameters
-// parse application/json 
 app.use(bodyParser.json()); 
 
 // parse application/vnd.api+json as json
@@ -26,19 +18,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride('X-HTTP-Method-Override')); 
 
 // set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + 'https://angularapp001.herokuapp.com/public'));
 
+require('https://angularapp001.herokuapp.com/app/routes')(app, express); // configure our routes
 
-// routes ==================================================
-//require('./app/routes')(app); // configure our routes
-require('./app/routes')(app, express); // configure our routes
-
-// start app ===============================================
-// startup our app at http://localhost:8080
 app.listen(port);               
-
-// shoutout to the user                     
-console.log('Magic happens on port ' + port);
+              
+console.log('Server Runs ' + port);
 
 
 module.exports.app 		= app; 
